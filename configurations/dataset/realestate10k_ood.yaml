@@ -1,0 +1,8 @@
+defaults:
+  - realestate10k
+
+subdataset_size: 0 # dummy value
+num_eval_videos: 32
+rotation_angle:
+  min: 170
+  max: 180

@@ -1,0 +1,15 @@
+# @package _global_
+
+# Important: Be careful when modifying this file! The fields in file will be overridden by the dataset dependent config file in the `configurations/dataset_experiment` folder so consider making changes there instead! 
+
+dataset:
+  resolution: 256
+  latent:
+    suffix: 1cd9pgpb
+
+algorithm:
+  pretrained_path: pretrained:ImageVAE_MCRAFT.ckpt
+
+experiment:
+  batch_size: 2
+

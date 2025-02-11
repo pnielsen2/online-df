@@ -1,0 +1,21 @@
+# @package _global_
+
+# Important: Be careful when modifying this file! The fields in file will be overridden by the dataset dependent config file in the `configurations/dataset_experiment` folder so consider making changes there instead! 
+
+dataset:
+  latent:
+    enable: False
+  max_frames: 2
+  frame_skip: 150
+  context_length: 0
+  external_cond_dim: 0
+  
+experiment:
+  training:
+    batch_size: 12
+    data:
+      num_workers: 8
+  validation:
+    batch_size: 12
+    data:
+      num_workers: 8

@@ -1,0 +1,31 @@
+# @package _global_
+# 12 x H100 GPUs
+
+# Important: Be careful when modifying this file! The fields in file will be overridden by the dataset dependent config file in the `configurations/dataset_experiment` folder so consider making changes there instead! 
+
+
+defaults:
+  - ../algorithm/backbone@algorithm.backbone: dit3d
+
+dataset:
+  num_eval_videos: 6144
+  subdataset_size: 3840000
+  latent:
+    enable: True
+
+algorithm:
+  lr_scheduler:
+    num_warmup_steps: 10000
+  weight_decay: 0
+  backbone:
+    patch_size: 1
+  diffusion:
+    loss_weighting:
+      cum_snr_decay: 0.96
+  logging:
+    n_metrics_frames: 16
+    max_num_videos: 128
+    metrics: [vbench, fvd, is, fid, lpips, mse, ssim, psnr]
+  vae:
+    pretrained_path: pretrained:VideoVAE_K600.ckpt
+    batch_size: 16
