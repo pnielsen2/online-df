@@ -659,7 +659,7 @@ class DFoTVideo(BasePytorchAlgo):
             )
             * self.sampling_timesteps,
             initial=0,
-            desc="Interpolating",
+            desc="Interpolating with DFoT",
             leave=False,
         )
         for current_plan in plan:
@@ -1030,7 +1030,7 @@ class DFoTVideo(BasePytorchAlgo):
                 // (self.max_tokens - sliding_context_len)
             ),
             initial=0,
-            desc="Predicting",
+            desc="Predicting with DFoT",
             leave=False,
         )
         while curr_token < length:
@@ -1232,7 +1232,7 @@ class DFoTVideo(BasePytorchAlgo):
             pbar = tqdm(
                 total=scheduling_matrix.shape[0] - 1,
                 initial=0,
-                desc="Sampling",
+                desc="Sampling with DFoT",
                 leave=False,
             )
 
