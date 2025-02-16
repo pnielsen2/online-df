@@ -26,7 +26,7 @@ This is the official repository for the paper [**_History-Guided Video Diffusion
 ## 🔥 News
 - **2025-02**: [Diffusion Forcing Transformer](https://github.com/kwsong0113/diffusion-forcing-transformer) is released.
 
-## 🤗 Try generating videos with DFoT!
+## 🤗 Try generating videos with DFoT in your browser!
 
 We provide an [_interactive_ demo](https://huggingface.co/spaces/kiwhansong/diffusion-forcing-transformer) on HuggingFace Spaces, where you can generate videos with DFoT and History Guidance. On the RealEstate10K dataset, you can generate:
 - Any Number of Images → Short 2-second Video
@@ -35,19 +35,17 @@ We provide an [_interactive_ demo](https://huggingface.co/spaces/kiwhansong/diff
 
 Please check it out and have fun generating videos with DFoT!
 
-## 🗄️ DFoT Zoo
-You can play with the [pretrained DFoT models](https://huggingface.co/kiwhansong/DFoT) available on HuggingFace Hub:
 
-Dataset |   Resolution    | #Params | 🤗 HF weights                                                                        |
-|:----------|:-----:|:--------:|:----------|
-|  RealEstate10K   |  256x256   |  458M   | [DFoT_RE10K.ckpt](https://huggingface.co/kiwhansong/DFoT/resolve/main/pretrained_models/DFoT_RE10K.ckpt) |
-|  Kinetics-600   |  128x128  |  673M   | [DFoT_K600.ckpt](https://huggingface.co/kiwhansong/DFoT/resolve/main/pretrained_models/DFoT_K600.ckpt) |
-|  Minecraft   |  256x256 |  130M   | [DFoT_MCRAFT.ckpt](https://huggingface.co/kiwhansong/DFoT/resolve/main/pretrained_models/DFoT_MCRAFT.ckpt) |
+## 📖 Detailed Development Wiki
+If you just want quickly try our model in python, you can skip this section and proceed to the "Quick Start" section. Otherwise, we provide a comprehensive [wiki](https://github.com/kwsong0113/diffusion-forcing-transformer/wiki) for developers who want to extend the DFoT framework. It offers a detailed guide on thse topics:
+- code structure
+- command line options
+- datasets structure
+- checkpointing and loading
+- training and evaluating DFoT or baseline models
+- every command to reproduce the paper's result
 
-Simply by appending `load=pretrained:{HF weights}` (e.g., `load=pretrained:DFoT_RE10K`) to the command, the pretrained model will be automatically downloaded and used for video generation.
-
-
-## 🚀 Usage
+## 🚀 Quick Start
 
 ### Setup
 
@@ -63,6 +61,7 @@ We use Weights & Biases for logging. [Sign up](https://wandb.ai/login?signup=tru
 ### Generating Videos with Pretrained Models
 
 Simply run one of the commands below to generate videos with a pretrained DFoT model. They will automatically download a tiny subset of the RealEstate10K dataset and a pretrained DFoT model.
+
 
 #### 1. Single Image to Long Video (200 Frames, takes ~10 mins):
 > **NOTE**: if you encounter CUDA out-of-memory errors (due to limited VRAM), try setting `algorithm.tasks.interpolation.max_batch_size=1`.
@@ -109,11 +108,8 @@ python -m main +name=MCRAFT dataset=minecraft algorithm=dfot_video experiment=vi
 # Coming soon
 ``` -->
 
-### Further Documentation
-We provide more detailed documentations of this repo in our [wiki](https://github.com/kwsong0113/diffusion-forcing-transformer/wiki). It offers a comprehensive guide on training and evaluating DFoT and baseline models, as well as all the necessary information for reproducing the paper's results. 
-
-Additionally, this repo is using [Boyuan Chen](https://boyuan.space/)'s research template [repo](https://github.com/buoyancy99/research-template). By its license, we just ask you to keep the above sentence and links in `README.md` and the `LICENSE` file to credit the author.
-
+## 📝 Acknowledgements
+This repo is using [Boyuan Chen](https://boyuan.space/)'s research template [repo](https://github.com/buoyancy99/research-template). By its license, we just ask you to keep the above sentence and links in `README.md` and the `LICENSE` file to credit the author.
 
 
 ## 📌 Citation
