@@ -20,7 +20,7 @@ class VideoLatentLearningExperiment(BaseLightningExperiment):
 
     compatible_datasets = dict(
         minecraft=MinecraftAdvancedVideoDataset,
-        k600=Kinetics600AdvancedVideoDataset,
+        kinetics_600=Kinetics600AdvancedVideoDataset,
     )
 
     data_module_cls = _data_module_cls
