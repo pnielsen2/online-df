@@ -79,9 +79,12 @@ python -m main +name=single_image_to_short dataset=realestate10k_mini algorithm=
 python -m main +name=two_images_to_interpolated dataset=realestate10k_mini algorithm=dfot_video_pose experiment=video_generation @diffusion/continuous load=pretrained:DFoT_RE10K.ckpt 'experiment.tasks=[validation]' experiment.validation.data.shuffle=True dataset.frame_skip=20 dataset.n_frames=8 experiment.validation.batch_size=1 algorithm.tasks.prediction.enabled=False algorithm.tasks.interpolation.enabled=True algorithm.tasks.interpolation.history_guidance.name=vanilla +algorithm.tasks.interpolation.history_guidance.guidance_scale=4.0
 ```
 
+#### 4. Generating Videos on Other Datasets
+Please refer to our [wiki](https://github.com/kwsong0113/diffusion-forcing-transformer/wiki/Reproducing) for more details.
+
 ### Training
 
-Training a DFoT model requires a large, full dataset. The commands below will automatically download the necessary data, but please note that this process may take a while (~few hours). We also provide specifications for the GPUs required for training. If you are training with fewer GPUs or using a smaller `⁠experiment.training.batch_size`, we recommend proportionally reducing `⁠experiment.training.lr`.
+Training a DFoT model requires a large, full dataset. The commands below will automatically download the necessary data, but please note that this process may take a while (~few hours). We also provide specifications for the GPUs required for training. If you are training with fewer GPUs or using a smaller `⁠experiment.training.batch_size`, we recommend proportionally reducing `⁠experiment.training.lr`. You training will produce a wandb link which ends with a wandb run id. To load or resume your trained model, simply append `load={the_wandb_run_id}` and `resume={the_wandb_run_id}` to the training / inferencecommand.
 
 #### 1. RealEstate10K (12 x 80GB VRAM GPUs)
 
@@ -102,11 +105,6 @@ python -m main +name=K600 dataset=kinetics_600 algorithm=dfot_video experiment=v
 python -m main +name=MCRAFT dataset=minecraft algorithm=dfot_video experiment=video_generation @diffusion/continuous @DiT/B
 ```
 
-#### 4. Robot Imitation Learning (4 x 24GB VRAM GPUs)
-> **Note**: Code for robot imitation learning will be released soon.
-<!-- ```bash
-# Coming soon
-``` -->
 
 ## 📝 Acknowledgements
 This repo is using [Boyuan Chen](https://boyuan.space/)'s research template [repo](https://github.com/buoyancy99/research-template). By its license, we just ask you to keep the above sentence and links in `README.md` and the `LICENSE` file to credit the author.
