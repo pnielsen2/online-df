@@ -15,6 +15,7 @@
     <br/>
     *Equal contribution <sup>1</sup>MIT <sup>2</sup>CMU <sup>3</sup>Harvard
   </p>
+  <h4 align="center">ICML 2025</h4>
   <h3 align="center"><a href="https://arxiv.org/abs/2502.06764">Paper</a> | <a href="https://boyuan.space/history-guidance">Website</a> | <a href="https://huggingface.co/spaces/kiwhansong/diffusion-forcing-transformer">HuggingFace Demo</a> | <a href="https://huggingface.co/kiwhansong/DFoT">Pretrained Models</a></h3>
 </p>
 
@@ -24,6 +25,7 @@ This is the official repository for the paper [**_History-Guided Video Diffusion
 
 
 ## 🔥 News
+- **2025-05**: DFoT is accepted to **ICML 2025**.
 - **2025-02**: [Diffusion Forcing Transformer](https://github.com/kwsong0113/diffusion-forcing-transformer) is released.
 
 ## 🤗 Try generating videos with DFoT in your browser!
