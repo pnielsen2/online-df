@@ -4,6 +4,7 @@ from datasets.video import (
     RealEstate10KAdvancedVideoDataset,
     RealEstate10KMiniAdvancedVideoDataset,
     RealEstate10KOODAdvancedVideoDataset,
+    AtariDataset,
 )
 from algorithms.dfot import DFoTVideo, DFoTVideoPose
 from .base_exp import BaseLightningExperiment
@@ -29,6 +30,7 @@ class VideoGenerationExperiment(BaseLightningExperiment):
         realestate10k_ood=RealEstate10KOODAdvancedVideoDataset,
         realestate10k_mini=RealEstate10KMiniAdvancedVideoDataset,
         kinetics_600=Kinetics600AdvancedVideoDataset,
+        atari=AtariDataset,
     )
 
     data_module_cls = _data_module_cls

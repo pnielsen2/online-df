@@ -1,0 +1,12 @@
+defaults:
+  - base_video
+
+save_dir: data/atari
+resolution: 256
+max_frames: 50
+context_length: 25
+frame_skip: 2
+latent:
+  enable: True
+  suffix: atari_vae
+external_cond_dim: 1
