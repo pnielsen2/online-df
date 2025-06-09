@@ -17,7 +17,7 @@ import lightning.pytorch as pl
 from lightning.pytorch.loggers.wandb import WandbLogger
 from lightning.pytorch.callbacks import LearningRateMonitor, ModelCheckpoint
 
-from omegaconf import DictConfig
+from omegaconf import DictConfig, OmegaConf
 
 from utils.print_utils import cyan
 from utils.distributed_utils import rank_zero_print
@@ -70,6 +70,9 @@ class BaseExperiment(ABC):
                 "Make sure you define compatible_algorithms correctly and make sure that each key has "
                 "same name as yaml file under '[project_root]/configurations/algorithm' without .yaml suffix"
             )
+        print("--- DEBUG: Full Resolved Config ---")
+        print(OmegaConf.to_yaml(self.root_cfg))
+        print("-----------------------------------")
         return self.compatible_algorithms[algo_name](self.root_cfg.algorithm)
 
     def exec_task(self, task: str) -> None:

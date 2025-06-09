@@ -1,0 +1,60 @@
+# @package _global_
+
+# This file is automatically loaded when running with experiment=video_generation and dataset=mujoco
+# It contains overrides for the default video_generation settings. The @package directive ensures
+# these overrides are merged into the main config tree.
+
+algorithm:
+  # By overriding the defaults list within the algorithm config,
+  # we ensure u_net3d is loaded instead of the default dit3d.
+  defaults:
+    - base_pytorch_algo
+    - backbone: u_net3d
+
+  # --- Overrides for the main algorithm ---
+  x_shape:
+    - "${dataset.resolution}"
+    - 1
+    - 1
+  logging:
+    metrics:
+      - mse
+      - lpips
+      - ssim
+      - psnr
+  diffusion:
+    timesteps: 1000
+    beta_schedule: "linear"
+  optimizer_beta: [0.9, 0.99]
+  weight_decay: 0.0
+  
+  # --- Overrides for the new u_net3d backbone ---
+  backbone:
+    network_size: 64
+    dim_mults: [1, 2, 4]
+    attn_resolutions: []
+    num_res_blocks: 2
+
+experiment:
+  training:
+    lr: 1.0e-4
+    batch_size: 64
+    max_epochs: 1000
+    data:
+      num_workers: 4
+      shuffle: True
+    checkpointing:
+      every_n_epochs: 100
+
+  validation:
+    batch_size: 64
+    val_every_n_epoch: 25
+    data:
+      num_workers: 4
+      shuffle: False
+
+  test:
+    batch_size: 64
+    data:
+      num_workers: 4
+      shuffle: False

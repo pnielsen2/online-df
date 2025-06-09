@@ -5,8 +5,13 @@ defaults:
 name: mujoco
 save_dir: data/
 env_name: Reacher-v5
-resolution: 11
-external_cond_dim: 3
+resolution: 14
+external_cond_dim: 0
 max_frames: 16
-batch_size: 64
-num_workers: 4
+frame_skip: 1
+context_length: 0
+latent:
+  enable: false
+data_mean: [0.0]
+data_std: [1.0]
+observation_shape: ["${dataset.resolution}", 1, 1]
