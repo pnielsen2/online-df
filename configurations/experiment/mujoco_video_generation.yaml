@@ -1,0 +1,19 @@
+# configurations/experiment/mujoco_video_generation.yaml
+
+# This is the control center for the mujoco_video_generation experiment.
+# It overrides the top-level defaults from config.yaml.
+defaults:
+  # First, load the base configurations
+  - base_pytorch_exp
+  
+  # NOW, apply the overrides. The correct syntax is `override <group_name>: <choice>`.
+  - override dataset: mujoco
+  - override algorithm: dfot_video_mujoco
+  
+  # Finally, include self
+  - _self_
+
+# Add any final experiment-level tweaks (e.g., learning rate)
+training:
+  lr: 0.0001
+  max_epochs: 1000

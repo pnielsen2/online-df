@@ -1,0 +1,30 @@
+# configurations/algorithm/dfot_video_mujoco.yaml
+
+# Inherit from the standard dfot_video config to get most parameters
+defaults:
+  - dfot_video
+  # This is the key: override the default backbone to use u_net3d.
+  # This loads configurations/algorithm/backbone/u_net3d.yaml with all its defaults.
+  - override backbone: u_net3d
+  - _self_
+
+# Now, apply our specific tweaks to the newly loaded Unet3D backbone.
+backbone:
+  network_size: 64
+  dim_mults: [1, 2, 4]
+  attn_resolutions: [] # Disable attention for this experiment
+
+# Add any other algorithm-level overrides needed for mujoco
+x_shape:
+  - "${dataset.resolution}"
+  - 1
+  - 1
+logging:
+  metrics:
+    - mse
+    - lpips
+    - ssim
+    - psnr
+diffusion:
+  beta_schedule: "linear"
+weight_decay: 0.0

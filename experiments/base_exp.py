@@ -70,9 +70,7 @@ class BaseExperiment(ABC):
                 "Make sure you define compatible_algorithms correctly and make sure that each key has "
                 "same name as yaml file under '[project_root]/configurations/algorithm' without .yaml suffix"
             )
-        print("--- DEBUG: Full Resolved Config ---")
-        print(OmegaConf.to_yaml(self.root_cfg))
-        print("-----------------------------------")
+
         return self.compatible_algorithms[algo_name](self.root_cfg.algorithm)
 
     def exec_task(self, task: str) -> None:

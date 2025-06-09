@@ -22,6 +22,7 @@ class VideoGenerationExperiment(BaseLightningExperiment):
         dfot_video_pose=DFoTVideoPose,
         sd_video=DFoTVideo,
         sd_video_3d=DFoTVideoPose,
+        dfot_video_mujoco=DFoTVideo,  # Add this line to register our new algorithm
     )
 
     compatible_datasets = dict(
