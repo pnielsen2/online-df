@@ -13,6 +13,7 @@ exp_registry = dict(
     video_generation=VideoGenerationExperiment,
     video_latent_preprocessing=VideoLatentPreprocessingExperiment,
     video_latent_learning=VideoLatentLearningExperiment,
+    mujoco_video_generation=VideoGenerationExperiment,
 )
 
 

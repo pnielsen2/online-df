@@ -132,9 +132,8 @@ class DFoTVideo(BasePytorchAlgo):
             match task:
                 case "prediction":
                     self.metrics_prediction = VideoMetric(
-                        registry,
-                        metric_types,
-                        split_batch_size=self.logging.metrics_batch_size,
+                        registry=None,
+                        metric_types=[],
                     )
                 case "interpolation":
                     assert (

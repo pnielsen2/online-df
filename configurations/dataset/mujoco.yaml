@@ -1,0 +1,12 @@
+# configurations/dataset/mujoco.yaml
+defaults:
+  - base_video
+
+name: mujoco
+save_dir: data/
+env_name: Reacher-v5
+resolution: 11
+external_cond_dim: 3
+max_frames: 16
+batch_size: 64
+num_workers: 4
