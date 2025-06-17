@@ -10,9 +10,11 @@ from datasets.video import (
 from algorithms.dfot import DFoTVideo, DFoTVideoPose
 from .base_exp import BaseLightningExperiment
 from .data_modules.utils import _data_module_cls
+import logging
 
 
 class VideoGenerationExperiment(BaseLightningExperiment):
+
     """
     A video generation experiment
     """

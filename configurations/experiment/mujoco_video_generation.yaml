@@ -6,10 +6,6 @@ defaults:
   # First, load the base configurations
   - base_pytorch_exp
   
-  # NOW, apply the overrides. The correct syntax is `override <group_name>: <choice>`.
-  - override dataset: mujoco
-  - override algorithm: dfot_video_mujoco
-  
   # Finally, include self
   - _self_
 
@@ -17,3 +13,7 @@ defaults:
 training:
   lr: 0.0001
   max_epochs: 1000
+
+# Set dataset and algorithm directly as part of this experiment's config
+dataset: mujoco
+algorithm: dfot_video_mujoco

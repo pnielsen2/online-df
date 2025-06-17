@@ -1,5 +1,6 @@
 # configuration parsing starts here
 defaults:
+  - _self_  # Add this line
   - experiment: video_generation # experiment yaml file name in configurations/experiments folder [fixme]
   - dataset: kinetics_600 # dataset yaml file name in configurations/dataset folder [fixme]
   - algorithm: dfot_video # algorithm yaml file name in configurations/algorithm folder [fixme]
@@ -14,4 +15,4 @@ wandb:
   mode: online # set wandb logging to online, offline or dryrun
 
 resume: null # wandb run id to resume logging and loading checkpoint from
-load: null # wanmdb run id containing checkpoint or a path to a checkpoint file 
+load: null # wanmdb run id containing checkpoint or a path to a checkpoint file
